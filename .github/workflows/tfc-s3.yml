@@ -1,7 +1,9 @@
 name: Terraform S3 Test
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   terraform:
