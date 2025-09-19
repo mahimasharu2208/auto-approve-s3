@@ -20,7 +20,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "example" {
-  bucket = "tfc-test-bucket-${random_pet.name.id}"
+  bucket = "tfc-bucket-${random_pet.name.id}"
 }
 
 resource "random_pet" "name" {
