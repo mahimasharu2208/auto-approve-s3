@@ -3,7 +3,7 @@ terraform {
     organization = "auth-learning"
 
     workspaces {
-      name = "tfc-s3-test"
+      name = "API-driven-test-mahima"
     }
   }
 
