@@ -1,0 +1,27 @@
+name: Terraform S3 Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.0
+
+      - name: Terraform Init
+        run: terraform init
+
+      # Case 1: With auto-approve
+      - name: Terraform Apply (with auto-approve)
+        run: terraform apply -auto-approve
+
+      # Case 2: Without auto-approve (uncomment to test)
+      # - name: Terraform Apply (without auto-approve)
+      #   run: terraform apply
