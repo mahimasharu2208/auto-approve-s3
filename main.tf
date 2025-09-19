@@ -16,7 +16,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "ap-south-1" # Change to your preferred region
+  region = "us-east-1" # Change to your preferred region
 }
 
 resource "aws_s3_bucket" "example" {
@@ -25,4 +25,13 @@ resource "aws_s3_bucket" "example" {
 
 resource "random_pet" "name" {
   length = 2
+}
+
+import {
+  to = aws_s3_bucket.test
+  id = "test-bucket-mahima-import"
+}
+
+resource "aws_s3_bucket" "test" {
+  bucket = "test-bucket-mahima-import"
 }
